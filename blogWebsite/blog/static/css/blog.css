@@ -1,22 +1,44 @@
 /* font-family: 'Abril Fatface', cursive;
 font-family: 'Gayathri', sans-serif; */
+#savebutton{
+  margin-right: 20px;
+}
+
+.bigbrand{
+  font-size: 1.5em;
+  color: black !important;
+}
+
+.nav-text{
+  color: black !important;
+}
+
 .techfont{
   font-family: 'Abril Fatface', cursive;
   font-size: 1.5em;
   margin-bottom: 10px;
 }
 
-.bigbrand{
-  font-size: 1.5em;
-}
-
 .centerstage{
   margin-left: auto;
   margin-right: auto;
+  margin: auto;
+  color: black;
+
+
+}
+
+.date{
+  color: grey;
 }
 
 .postdate{
   text-align: center;
+}
+
+.post_lists a{
+  color: black !important;
+  font-family: 'Gayathri', sans-serif;
 }
 
 .posttitle{
@@ -36,13 +58,57 @@ font-family: 'Gayathri', sans-serif; */
 }
 
 
+.format-body{
+  background: rgb(135, 209, 232);
+
+}
+
+.login-content{
+  margin-left: 50%;
+  margin-top: 20%;
+  margin-right: 0;
+}
+
+.content{
+  position: absolute;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 0;
+  width: 90%;
+  height: 100%;
+
+
+  }
+
+.format-content{
+  padding: 1.1em;
+  background: #FFFFFF;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 90%;
+
+}
+
+h2, h5{
+  font-family: 'Gayathri', sans-serif;
+}
+
+.floatclass{
+  float: right;
+  width: 50%;
+}
+
+.jumbocontent{
+  margin-top: 30px;
+  width: 150%;
+}
+
 /* COLOR CHANGER */
-.loader {
 
+.loader{
   filter:hue-rotate(0deg);
-  color: linear-gradient(45deg,#0f8,#08f);
+  background:linear-gradient(45deg,#0f8,#08f);
   animation:hue 10000ms infinite linear;
-
 }
 
 @keyframes spinify {

@@ -22,30 +22,30 @@
     <meta charset="utf-8">
     <title></title>
   </head>
-  <body class="loader">
+  <body class="format-body">
 
-    <nav class="navbar navbar-default techfont custom-navbar">
+    <nav class="navbar navbar-default custom-navbar loader techfont">
 
       <div class="container">
 
         <ul class="nav navbar-nav">
 
         <li> <a class="navbar-brand bigbrand" href="{% url 'post_list' %}">Blog</a> </li>
-        <li> <a href="{% url 'about' %}">About</a> </li>
-        <li> <a href="https://www.github.com">GitHub</a> </li>
-        <li> <a href="https://www.linkedin.com">LinkedIn</a> </li>
+        <li> <a class="nav-text" href="{% url 'about' %}">About</a> </li>
+        <li> <a class="nav-text" href="https://www.github.com">GitHub</a> </li>
+        <li> <a class="nav-text" href="https://www.linkedin.com">LinkedIn</a> </li>
 
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
           {% if user.is_authenticated %}
-          <li> <a href="{% url 'post_new' %}">New Post</a> </li>
-          <li> <a href="{% url 'post_draft_list' %}">Drafts</a> </li>
-          <li> <a href="{% url 'logout' %}">Logout</a> </li>
-          <li> <a>Welcome {{user.username}}</a> </li>
+          <li> <a class="nav-text" href="{% url 'post_new' %}">New Post</a> </li>
+          <li> <a class="nav-text" href="{% url 'post_draft_list' %}">Drafts</a> </li>
+          <li> <a class="nav-text" href="{% url 'logout' %}">Logout</a> </li>
+          <li> <a class="nav-text" >Welcome {{user.username}}</a> </li>
 
           {% else %}
-          <li> <a class="nav navbar-right" href="{% url 'login' %}">Login <span class="glyphicon glyphicon-user"></span> </a> </li>
+          <li> <a class="nav navbar-right nav-text" href="{% url 'login' %}">Login <span class="glyphicon glyphicon-user"></span> </a> </li>
 
           {% endif %}
         </ul>
@@ -55,7 +55,7 @@
     </nav>
 
     <div class="content container">
-      <div class="row">
+      <div class="row  format-content">
           <div class="col-md-8">
             <div class="blog_posts">
               {% block content %}

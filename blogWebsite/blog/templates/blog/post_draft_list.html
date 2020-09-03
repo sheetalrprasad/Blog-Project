@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 {% extends 'blog/base.html' %}
 
+<!-- DOES NOT WORK -->
+
 {% block content %}
 
   {% for post in posts %}
-    <div class="post">
-      <p class="date">Created: {{post.created_date|date:'D M Y'}}</p>
-      <h1> <a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a> </h1>
-      <p>{{post.text|truncatechars:200}}</p>
+    <div class="post_lists">
+      <h2> <a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a> </h2>
+      <p class="date">Created: {{post.created_date}}</p>
+      <p>{{post.text|safe|linebreaksbr|truncatechars:200}}</p>
     </div>
   {% endfor %}
 

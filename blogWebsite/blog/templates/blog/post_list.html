@@ -5,17 +5,31 @@
 
 <div class="centerstage">
   {% for post in post_list %}
+    <div class="post_lists">
+        <h2> <a href="{% url 'post_detail' pk=post.pk %}"> {{post.title}} </a> </h2>
+        <!-- Published Posts -->
+        {% if post.published_date %}
+          <div class="date">
+            <p>Published On: {{post.published_date|date:"D d M Y"}}</p>
+          </div>
+        {% else %}
+        <!-- Draft Posts -->
+          <div class="date">
+            <p>Created On: {{post.created_date|date:"D d M Y"}}</p>
+          </div>
+        {% endif %}
 
-    <div class="post">
-
-      <h1> <a href="{% url 'post_detail' pk=post.pk %}"> {{post.title}} </a> </h1>
-        <div class="date">
-          <p>Published On: {{post.published_date|date:"D M Y"}}</p>
-        </div>
+        <p>{{post.text|safe|linebreaksbr|truncatechars:50}}</p>
         <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{post.approve_comments.count}}</a>
 
+        <div class="floatclass">
+          <h5>Author: {{post.author}} </h5>
+        </div>
     </div>
+    <hr>
 
+  {% empty %}
+      <p>No Blogs available</p>
 
   {% endfor %}
 

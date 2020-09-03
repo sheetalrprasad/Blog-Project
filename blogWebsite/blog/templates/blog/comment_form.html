@@ -3,11 +3,13 @@
 
 {% block content %}
 
-<h1>New Comment</h1>
+<h2>New Comment</h2>
+<br>
 <form class="post-form"  method="POST">
   {% csrf_token %}
   {{form.as_p}}
-  <button type="submit" class="save btn btn-defautl">Post</button>
+  <button type="submit" id="savebutton" class="save btn btn-success">Post</button>
+  <a class="btn btn-danger" href="{% url 'post_draft_list' %}">Cancel</a>
 </form>
 
 <script>

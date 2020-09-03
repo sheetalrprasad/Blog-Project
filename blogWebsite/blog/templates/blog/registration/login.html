@@ -1,7 +1,7 @@
 {% extends 'blog/base.html' %}
 {% block content %}
 
-<div class="jumbotron">
+<div class="login-content">
 
   <h2>Please Login:</h2>
   <p>(Must be a super-user, please check with site-admin)</p>
@@ -15,7 +15,7 @@
       {% csrf_token %}
       {{ form.as_p }}
 
-      <input type="submit" class="btn btn-primary" value="Login">
+      <input type="submit" class="btn btn-success" value="Login">
       <input type="hidden" name="next" value="{{next}}">
 
     </form>
