@@ -13,14 +13,22 @@
     <p>Created On: {{post.created_date}}</p>
   </div>
   <br>
+
   <a class="btn btn-info" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
 {% endif %}
 
-  <p class="postcontent">{{post.text|safe|linebreaksbr}}</p>
+<div class="date author">
+  <p>Author: {{post.author}}</p>
+</div>
+
+
+<p class="postcontent">{{post.text|safe|linebreaksbr}}</p>
 <br>
 {% if user.is_authenticated %}
-<a class="btn btn-primary" href="{% url 'post_edit' pk=post.pk %}"> <span class="glyphicon glyphicon-pencil"></span></a>
-<a class="btn btn-danger" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-trash"></span></a>
+{% ifequal user.username post.author.username %}
+  <a class="btn btn-primary" href="{% url 'post_edit' pk=post.pk %}"> <span class="glyphicon glyphicon-pencil"></span></a>
+  <a class="btn btn-danger" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-trash"></span></a>
+{% endifequal %}
 {% endif %}
 
 <hr>
@@ -28,25 +36,33 @@
 
 <div class="container">
   <br>
-  {% for comment in post.comments.all %}
     <br>
-    {% if user.is_authenticated or comment.approved_comment %}
-      {{comment.created_date}}
-      {% if not comment.approved_comment %}
-      <a class="btn btn-success" href="{% url 'comment_approve' pk=comment.pk %}"> <span class="glyphicon glyphicon-ok"></span></a>
-      <a class="btn btn-danger" href="{% url 'comment_remove' pk=comment.pk %}"> <span class="glyphicon glyphicon-trash"></span></a>
+    {% for comment in post.comments.all %}
+
+      {% if comment.approved_comment %}
+        {{comment.created_date}}
+        <p>{{comment.text|safe|linebreaksbr}}</p>
+        <p>Posted By: {{comment.author}}</p>
+        <br>
       {% endif %}
 
-      <p>{{comment.text|safe|linebreaksbr}}</p>
-      <p>Posted By: {{comment.author}}</p>
-    {% endif %}
+      {% if user.is_authenticated  and not comment.approved_comment %}
+      {% ifequal user.username post.author.username %}
+        {{comment.created_date}}
+        <a class="btn btn-success" href="{% url 'comment_approve' pk=comment.pk %}"> <span class="glyphicon glyphicon-ok"></span></a>
+        <a class="btn btn-danger" href="{% url 'comment_remove' pk=comment.pk %}"> <span class="glyphicon glyphicon-trash"></span></a>
+        <p>{{comment.text|safe|linebreaksbr}}</p>
+        <p>Posted By: {{comment.author}}</p>
+      {% endifequal %}
+      {% endif %}
 
     {% empty %}
+
     <div class="no-comment">
       <p>No Comments</p>
     </div>
 
-  {% endfor %}
+    {% endfor %}
 
 </div>
 

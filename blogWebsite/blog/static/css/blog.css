@@ -30,6 +30,11 @@ font-family: 'Gayathri', sans-serif; */
   color: grey;
 }
 
+.author{
+  color: rgb(92, 116, 156);
+}
+
+
 .post_lists a{
   color: black !important;
   font-family: 'Gayathri', sans-serif;
@@ -45,8 +50,9 @@ font-family: 'Gayathri', sans-serif; */
   font-size: 1.2em;
 }
 
+
 .btn-comment{
-float: right; 
+float: right;
 }
 
 .format-body{

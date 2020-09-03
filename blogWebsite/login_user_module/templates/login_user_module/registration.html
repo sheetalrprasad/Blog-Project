@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="jumbotron">
+  {% if registered %}
+    <h3>Thank you for registering</h3>
+    <br>
+    <li> <a class="bigbrand" href="{% url 'login' %}">Login <span class="glyphicon glyphicon-chevron-right"></span> </a> </li>
+  {% else %}
+    <h1>Please register</h1>
+    <h3>Fill the form</h3>
+
+    <form enctype="multipart/form-data" method="POST">
+      {% csrf_token %}
+      {{ user_form.as_p }}
+      {{ profile_form.as_p }}
+
+      <input type="submit"  value="Register">
+
+    </form>
+  {% endif %}
+</div>
+
+{% endblock %}
