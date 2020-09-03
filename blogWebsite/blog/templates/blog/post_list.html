@@ -7,6 +7,7 @@
   {% for post in post_list %}
     <div class="post_lists">
         <h2> <a href="{% url 'post_detail' pk=post.pk %}"> {{post.title}} </a> </h2>
+
         <!-- Published Posts -->
         {% if post.published_date %}
           <div class="date">
@@ -19,7 +20,8 @@
           </div>
         {% endif %}
 
-        <p>{{post.text|safe|linebreaksbr|truncatechars:50}}</p>
+        <p>{{post.text|safe|linebreaksbr|truncatechars_html:20}}</p>
+
         <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{post.approve_comments.count}}</a>
 
         <div class="floatclass">

@@ -24,16 +24,10 @@ font-family: 'Gayathri', sans-serif; */
   margin-right: auto;
   margin: auto;
   color: black;
-
-
 }
 
 .date{
   color: grey;
-}
-
-.postdate{
-  text-align: center;
 }
 
 .post_lists a{
@@ -44,23 +38,19 @@ font-family: 'Gayathri', sans-serif; */
 .posttitle{
   font-family: 'Abril Fatface', cursive;
   font-size: 3em;
-  text-align: center;
 }
 
 .postcontent{
   font-family: 'Gayathri', sans-serif;
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 
 .btn-comment{
-  position: absolute;
-  right: 0px;
+float: right; 
 }
-
 
 .format-body{
   background: rgb(135, 209, 232);
-
 }
 
 .login-content{
@@ -76,9 +66,7 @@ font-family: 'Gayathri', sans-serif; */
   margin-top: 0;
   width: 90%;
   height: 100%;
-
-
-  }
+}
 
 .format-content{
   padding: 1.1em;
@@ -86,7 +74,9 @@ font-family: 'Gayathri', sans-serif; */
   margin-left: auto;
   margin-right: auto;
   min-height: 90%;
-
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 h2, h5{

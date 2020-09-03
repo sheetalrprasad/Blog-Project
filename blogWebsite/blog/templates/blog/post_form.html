@@ -9,7 +9,7 @@
     {% csrf_token %}
     {{form.as_p}}
 
-    <button type="submit" id="savebutton" class="save btn btn-success" >Save as Draft</button>
+    <button type="submit" id="savebutton" class="save btn btn-success" >Save</button>
     <a class="btn btn-danger" href="{% url 'post_draft_list' %}">Cancel</a>
   </form>
 
