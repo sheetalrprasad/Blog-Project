@@ -4,6 +4,10 @@ font-family: 'Gayathri', sans-serif; */
   margin-right: 20px;
 }
 
+#drafts{
+    font-style: italic;
+}
+
 .bigbrand{
   font-size: 1.5em;
   color: black !important;
@@ -35,8 +39,7 @@ font-family: 'Gayathri', sans-serif; */
 }
 
 
-.post_lists a{
-  color: black !important;
+.post_lists{
   font-family: 'Gayathri', sans-serif;
 }
 
@@ -98,6 +101,7 @@ h2, h5{
   margin-top: 30px;
   width: 150%;
 }
+
 
 /* COLOR CHANGER */
 
